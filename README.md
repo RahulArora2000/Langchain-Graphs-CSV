@@ -1,4 +1,4 @@
-# SufiBot
+# Bot
 
 SufiBot is a conversational assistant powered by language models. It uses the LangChain library and various other Python packages to provide interactive chat functionality. This readme provides an overview of the code and its dependencies.
 
@@ -50,7 +50,7 @@ To run the code, follow these steps:
 
 ## Additional Notes
 
-- This code assumes the presence of CSV files named "inventory.csv" and "order.csv" in the specified paths (`C:\Users\Rahul\Downloads\inventory.csv` and `C:\Users\Rahul\Downloads\order.csv`). Make sure to update the paths if your files are located elsewhere or have different names.
+- This code assumes the presence of CSV files named "inventory.csv" and "order.csv" in the specified paths (`YOUR CSV FILE PATH.csv` and `CSV FILE PATH.csv`). Make sure to update the paths if your files are located elsewhere or have different names.
 
 - The code uses the `create_pandas_dataframe_agent` function from the `langchain.agents` module to create an agent based on the provided ERP and transactional data. You may need to modify this part to suit your specific use case.
 
