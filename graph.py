@@ -33,18 +33,17 @@ import os
 from google.oauth2 import service_account
 matplotlib.use('TKAgg')
 from langchain.agents import load_tools
-PROJECT_ID = "supply-chain-twin-349311"
+PROJECT_ID = "your project id "
 
-# os.environ["OPENAI_API_KEY"]="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"
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "supply-chain-twin-349311-5efed3f5c999 (1).json"
-credentials = service_account.Credentials.from_service_account_file("supply-chain-twin-349311-5efed3f5c999 (1).json")
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "service account credential "
+credentials = service_account.Credentials.from_service_account_file("service account credentials")
 aiplatform.init(project=PROJECT_ID, location="us-central1", credentials=credentials)
-st.set_page_config(page_title='SufiBot')
+st.set_page_config(page_title='Bot')
 
 st.markdown('''
         <div style="display: flex; align-items: center; justify-content: center;">
           <h1 style='text-align: center;'>SufiBot</h1>
-          <img src="https://www.cloudsufi.com/wp-content/uploads/2020/09/Cloudsufi-Logos_Colour-Dots@4x-805x1024.png"
+          <img src="logo"
                width="40" style="margin-left: 10px;">
         </div>
         ''',unsafe_allow_html=True)
@@ -61,8 +60,8 @@ if 'messages' not in st.session_state:
 
 def gen_res(prompt):
     st.session_state['messages'].append({"role": "user", "content": prompt})
-    erp_data = pd.read_csv(r"C:\Users\Rahul\Downloads\inventory.csv")
-    transactinol_data = pd.read_csv(r"C:\Users\Rahul\Downloads\order.csv")
+    erp_data = pd.read_csv(r"path to csv")
+    transactinol_data = pd.read_csv(r"path to csv")
     agent = create_pandas_dataframe_agent(VertexAI(temperature=0), [erp_data, transactinol_data], verbose=True)
     response = agent.run(prompt)
     print('res', response)
